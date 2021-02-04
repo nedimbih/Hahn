@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Hahn.ApplicationProcess.December2020.Data;
+using Microsoft.Extensions.Hosting;
+using FluentValidation.AspNetCore;
+using Hahn.ApplicationProcess.December2020.Domain.Validations;
 
 namespace Hahn.ApplicationProcess.December2020.Web {
     public class Startup
@@ -25,14 +28,17 @@ namespace Hahn.ApplicationProcess.December2020.Web {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                        .AddFluentValidation(fvOptions => fvOptions.RegisterValidatorsFromAssemblyContaining<ApplicantValidator>());
+            // if above does not work, remove fvOptions lambda and enable line below (fluent validation nuget might need to be added to the csproj)
+            //services.AddTransient<IValidator<Applicant>, ApplicantValidator>();
 
             services.AddScoped<IApplicantManager, ApplicantManager>();
             services.AddScoped<IApplicantRepo, ApplicantRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Aurelia.DotNet" Version="1.1.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.0" />
   </ItemGroup>
 
   <ItemGroup>
