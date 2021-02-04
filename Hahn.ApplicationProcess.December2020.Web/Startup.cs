@@ -2,11 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hahn.ApplicationProcess.December2020.Domain;
+using Hahn.ApplicationProcess.December2020.Models.Interfaces;
+using Hahn.ApplicationProcess.December2020.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Hahn.ApplicationProcess.December2020.Data;
 
 namespace Hahn.ApplicationProcess.December2020.Web {
     public class Startup
@@ -22,7 +26,9 @@ namespace Hahn.ApplicationProcess.December2020.Web {
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(options => options.EnableEndpointRouting = false);
-            
+
+            services.AddScoped<IApplicantManager, ApplicantManager>();
+            services.AddScoped<IApplicantRepo, ApplicantRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

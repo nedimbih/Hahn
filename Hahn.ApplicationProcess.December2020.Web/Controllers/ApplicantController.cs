@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hahn.ApplicationProcess.December2020.Models.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,6 +11,12 @@ namespace Hahn.ApplicationProcess.December2020.Web.Controllers {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class ApplicantController : ControllerBase {
+		private IApplicantManager _applicantManager;
+
+		public ApplicantController(IApplicantManager manager) {
+			_applicantManager = manager;
+		}
+
 		// GET: api/<ApplicantController>
 		[HttpGet]
 		public IEnumerable<string> Get() {
