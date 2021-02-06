@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hahn.ApplicationProcess.December2020.Models</name>
+    </assembly>
+    <members>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.Name">
+            <example>Veronika</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.FamilyName">
+            <example>Jackson</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.Address">
+            <example>Green street 23, London</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.CountryOfOrigin">
+            <example>Fiji</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.EMailAdress">
+            <example>someone@email.me</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.Age">
+            <example>43</example>
+        </member>
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.Hired">
+            <example>true</example>
+        </member>
+    </members>
+</doc>

@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hahn.ApplicationProcess.December2020.Models.Interfaces;
+using Hahn.ApplicationProcess.December2020.Models;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using Swashbuckle.AspNetCore.Annotations;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Hahn.ApplicationProcess.December2020.Web.Controllers {
 	[Route("api/[controller]")]
@@ -17,30 +20,49 @@ namespace Hahn.ApplicationProcess.December2020.Web.Controllers {
 			_applicantManager = manager;
 		}
 
-		// GET: api/<ApplicantController>
-		[HttpGet]
-		public IEnumerable<string> Get() {
-			return new string[] { "value1", "value2" };
-		}
-
-		// GET api/<ApplicantController>/5
+		/// <summary>
+		/// Return the applicant for the provided ID number.
+		/// </summary>
+		/// <param name="id" example="123">The applicant's id</param>
+		/// <response code="200">Returns the requested applicant</response>
 		[HttpGet("{id}")]
-		public string Get(int id) {
-			return "value";
+		[Produces("application/json")]
+		[ProducesResponseType(typeof(Applicant), StatusCodes.Status200OK)]
+		public IActionResult Get(int id) {
+			return NotFound();
 		}
 
-		// POST api/<ApplicantController>
+		/// <summary>
+		/// Create a new applicant entry
+		/// </summary>
+		/// <response code="201">Applicant stored in db</response>
+		/// <remarks>
+		/// If the entry is stored successfully, url of the stored entry will be returned
+		/// </remarks>
 		[HttpPost]
-		public void Post([FromBody] string value) {
+		[Consumes("application/json")]
+		[ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
+		public ActionResult Post([FromBody, SwaggerRequestBody("The applicant entry", Required = true)] Applicant applicant) {
+			return new object() as ActionResult;
 		}
 
-		// PUT api/<ApplicantController>/5
+		/// <summary>
+		/// Update an existing applicant
+		/// </summary>
+		/// <response code="200">Applicant updated</response>
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value) {
+		[Consumes("application/json")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		public void Put(int id, [FromBody, SwaggerRequestBody("The applicant entry", Required = true)] Applicant applicant) {
 		}
 
-		// DELETE api/<ApplicantController>/5
+		/// <summary>
+		/// Delete an existing applicant
+		/// </summary>
+		/// <param name="id" example="123">The applicant's id</param>
+		/// <response code="200">Applicant deleted</response>
 		[HttpDelete("{id}")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
 		public void Delete(int id) {
 		}
 	}
