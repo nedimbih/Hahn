@@ -8,16 +8,18 @@ using Hahn.ApplicationProcess.December2020.Models;
 using System.Net;
 using Microsoft.AspNetCore.Http;
 using Swashbuckle.AspNetCore.Annotations;
-
+using Serilog;
 
 namespace Hahn.ApplicationProcess.December2020.Web.Controllers {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class ApplicantController : ControllerBase {
 		private IApplicantManager _applicantManager;
+		private readonly ILogger _loger;
 
-		public ApplicantController(IApplicantManager manager) {
+		public ApplicantController(IApplicantManager manager, ILogger loger) {
 			_applicantManager = manager;
+			_loger = loger;
 		}
 
 		/// <summary>
