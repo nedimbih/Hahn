@@ -4,11 +4,11 @@
         <name>Hahn.ApplicationProcess.December2020.Web</name>
     </assembly>
     <members>
-        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.GetAsync(System.Int32)">
+        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.Get(System.Int32)">
             <summary>
             Return the applicant for the provided ID number.
             </summary>
-            <param name="id" example="123">The applicant's id</param>
+            <param name="id" example="1">The applicant's id</param>
             <response code="200">Returns the requested applicant</response>
         </member>
         <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.Post(Hahn.ApplicationProcess.December2020.Models.Applicant)">
@@ -16,8 +16,9 @@
             Create a new applicant entry
             </summary>
             <response code="201">Applicant stored in db</response>
+            <response code ="404"> Applicant with given ID is not found in db</response>
             <remarks>
-            If the entry is stored successfully, url of the stored entry will be returned
+            If the entry is stored successfully, url of the stored entry will be returned.
             </remarks>
         </member>
         <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.Put(System.Int32,Hahn.ApplicationProcess.December2020.Models.Applicant)">
@@ -25,13 +26,15 @@
             Update an existing applicant
             </summary>
             <response code="200">Applicant updated</response>
+            <response code ="404"> Applicant with given ID is not found in db</response>
         </member>
         <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.Delete(System.Int32)">
             <summary>
             Delete an existing applicant
             </summary>
-            <param name="id" example="123">The applicant's id</param>
+            <param name="id" example="1">The applicant's id</param>
             <response code="200">Applicant deleted</response>
+            <response code ="404"> Applicant with given ID is not found in db</response>
         </member>
     </members>
 </doc>

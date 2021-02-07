@@ -1,9 +1,5 @@
 ﻿using Hahn.ApplicationProcess.December2020.Models;
 using Hahn.ApplicationProcess.December2020.Models.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Hahn.ApplicationProcess.December2020.Domain {
@@ -20,9 +16,9 @@ namespace Hahn.ApplicationProcess.December2020.Domain {
 		public int AddApplicant(Applicant applicant) {
 			applicant.ID = 0; // sets to zero so db can generate an id number. 
 			return _repo.AddApplicant(applicant);
-		} 
+		}
 
-		public int DeleteApplicant(int id) => 
+		public int DeleteApplicant(int id) =>
 			_repo.DeleteApplicant(id);
 		public async Task<Applicant> GetApplicantAsync(int id) =>
 			await _repo.GetApplicantAsync(id);

@@ -2,9 +2,7 @@
 using Hahn.ApplicationProcess.December2020.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Hahn.ApplicationProcess.December2020.Data {
@@ -18,7 +16,7 @@ namespace Hahn.ApplicationProcess.December2020.Data {
 		public int AddApplicant(Applicant applicant) {
 			try {
 				var created = _context.Add<Applicant>(applicant);
-			
+
 				if (_context.SaveChanges() > 0) {
 					return created.Entity.ID;
 				} else
@@ -48,7 +46,7 @@ namespace Hahn.ApplicationProcess.December2020.Data {
 					return null;
 
 				PopulateProperties(entryInDb, applicant);
-				
+
 				var updated = _context.Update(entryInDb);
 				if (_context.SaveChanges() > 0) {
 					return updated.Entity;
@@ -56,8 +54,8 @@ namespace Hahn.ApplicationProcess.December2020.Data {
 					throw new Exception("Db Error: Entry is not saved!");
 			} catch (Exception) { throw; }
 		}
-		
-		private void PopulateProperties (Applicant entryInDb, Applicant incomingValues) {
+
+		private void PopulateProperties(Applicant entryInDb, Applicant incomingValues) {
 			if (incomingValues.Name is not null)
 				entryInDb.Name = incomingValues.Name;
 			if (incomingValues.FamilyName is not null)
