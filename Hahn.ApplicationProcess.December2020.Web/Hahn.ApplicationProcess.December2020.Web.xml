@@ -4,7 +4,7 @@
         <name>Hahn.ApplicationProcess.December2020.Web</name>
     </assembly>
     <members>
-        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.Get(System.Int32)">
+        <member name="M:Hahn.ApplicationProcess.December2020.Web.Controllers.ApplicantController.GetAsync(System.Int32)">
             <summary>
             Return the applicant for the provided ID number.
             </summary>

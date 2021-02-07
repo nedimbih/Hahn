@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System.Reflection;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hahn.ApplicationProcess.December2020.Web {
 	public class Startup
@@ -32,6 +33,9 @@ namespace Hahn.ApplicationProcess.December2020.Web {
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddDbContext<ApplicationDbContext>(options =>
+				options.UseInMemoryDatabase(Configuration.GetValue<string>("InMemoryDatabaseName", "HahnDb")));
+
 			services.AddMvc(options => {
 				options.EnableEndpointRouting = false; // mandatory for app.UseMvc in Configure method
 				
