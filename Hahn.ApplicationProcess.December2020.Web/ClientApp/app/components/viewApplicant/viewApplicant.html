@@ -1,0 +1,38 @@
+﻿<template>
+    <h1>View applicant info</h1>
+    <p>The data is read from the database! It serves as a confirmation of a successful storing of the data. </p>
+    <table class="table table-striped">
+        <tr>
+            <td>ID</td>
+            <td>${applicant.id}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>${applicant.name}</td>
+        </tr>
+        <tr>
+            <td>Family name</td>
+            <td>${applicant.familyName}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>${applicant.address}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>${applicant.countryOfOrigin}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>${applicant.emailAddress}</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>${applicant.age}</td>
+        </tr>
+        <tr>
+            <td>Hired</td>
+            <td>${applicant.hired}</td>
+        </tr>
+    </table>
+</template>

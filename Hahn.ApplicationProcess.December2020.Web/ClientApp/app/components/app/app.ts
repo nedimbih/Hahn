@@ -2,32 +2,26 @@ import { Aurelia, PLATFORM } from 'aurelia-framework';
 import { Router, RouterConfiguration } from 'aurelia-router';
 
 export class App {
-    router: Router;
+    router!: Router;
 
     configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'Aurelia';
         config.map([{
-            route: [ '', 'home' ],
-            name: 'home',
-            settings: { icon: 'home' },
-            moduleId: PLATFORM.moduleName('../home/home'),
-            nav: true,
-            title: 'Home'
+                route: ["", 'createApplicant'],
+                name: 'createApplicant',
+                settings: { icon: 'plus' },
+                moduleId: PLATFORM.moduleName('../createApplicant/createApplicant'),
+                nav: true,
+                title: 'Create applicant'
         }, {
-            route: 'counter',
-            name: 'counter',
-            settings: { icon: 'education' },
-            moduleId: PLATFORM.moduleName('../counter/counter'),
-            nav: true,
-            title: 'Counter'
-        }, {
-            route: 'fetch-data',
-            name: 'fetchdata',
-            settings: { icon: 'th-list' },
-            moduleId: PLATFORM.moduleName('../fetchdata/fetchdata'),
-            nav: true,
-            title: 'Fetch data'
-        }]);
+                route: "viewApplicant/:id",
+                name: 'viewApplicant',
+                href: "#viewApplicant",
+                settings: { icon: 'minus' },
+                moduleId: PLATFORM.moduleName('../viewApplicant/viewApplicant'),
+                nav: false,
+                title: 'View applicant'
+            }]);
 
         this.router = router;
     }

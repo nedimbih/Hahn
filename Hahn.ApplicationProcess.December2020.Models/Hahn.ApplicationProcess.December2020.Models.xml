@@ -16,7 +16,7 @@
         <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.CountryOfOrigin">
             <example>Fiji</example>
         </member>
-        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.EMailAdress">
+        <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.EmailAddress">
             <example>someone@email.me</example>
         </member>
         <member name="P:Hahn.ApplicationProcess.December2020.Models.Applicant.Age">

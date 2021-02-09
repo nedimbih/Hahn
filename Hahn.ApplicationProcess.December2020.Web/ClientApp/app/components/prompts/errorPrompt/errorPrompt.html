@@ -1,0 +1,15 @@
+﻿<template>
+    <ux-dialog>
+        <ux-dialog-body>
+            <h4>There was an error! Would you like to reset the form or continue editing the same data?</h4>
+            <ul show.bind="hasErrors">
+                <li repeat.for="message of messages">${message}</li>
+            </ul>
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+            <button class="btn btn-warning" click.trigger="controller.cancel()">Continue</button>
+            <button class="btn btn-primary" click.trigger="controller.ok()">Reset</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

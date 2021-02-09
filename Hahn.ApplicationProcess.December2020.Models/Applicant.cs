@@ -32,7 +32,7 @@ namespace Hahn.ApplicationProcess.December2020.Models {
 		/// <example>someone@email.me</example>
 		[MinLength(5, ErrorMessage = "Email can not be shorter than 5 characters!")]
 		[MaxLength(320, ErrorMessage = "Email can not be longer than 320 characters!")]
-		public string EMailAdress { get; set; }
+		public string EmailAddress { get; set; }
 
 		/// <example>43</example>
 		[Range(20, 60, ErrorMessage = "Age must be between 20 and 60!")]

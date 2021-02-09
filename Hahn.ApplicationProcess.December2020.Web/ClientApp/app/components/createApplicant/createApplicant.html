@@ -1,0 +1,83 @@
+<template>
+    <div class="container col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h1>Applicant editor</h1>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" id="applicant-form" name="applicantForm" 
+                        submit.trigger="save()" change.trigger="SignalRefreshButtonStates()"
+                        validate.bind="validationController">
+                    <div class="form-group" hidden>
+                        <label for="applicant-ID" class="col-sm-2 control-label">Applicant ID</label>
+                        <div class="col-sm-7">
+                            <input type="hidden" class="form-control" id="applicant-ID" placeholder="" value.bind="applicant.ID">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="applicantName" id="applicant-name" placeholder="Nedim" value.bind="applicant.name & validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-familyname" class="col-sm-2 control-label">Family-name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control"  name="applicantFamilyName" id="applicant-familyname" placeholder="Mulaosmanovic" value.bind="applicant.familyName & validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-address" class="col-sm-2 control-label">Address</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="applicantAddress" id="applicant-address" placeholder="Green street, no 23, Springfield" value.bind="applicant.address & validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-country" class="col-sm-2 control-label">Country</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control"name="applicantCountry" id="applicant-country" placeholder="Fiji" value.bind="applicant.countryOfOrigin & validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="applicantEmail" id="applicant-email" placeholder="someone@email.me" value.bind="applicant.emailAddress & validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicant-age" class="col-sm-2 control-label">Age</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="applicantAge"  id="applicant-age" placeholder="22" value.bind="applicant.age & validate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-7">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="applicant-hired" checked.bind="applicant.hired"> Hired
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button class="btn btn-warning" type="reset" disabled.bind="refreshResetButton() & signal:'refresh-reset-button'" click.trigger="reset()">Reset</button>
+                        </div>
+
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button type="submit" class="btn btn-primary" disabled.bind="refreshSendButton() & signal:'refresh-send-button'" >Send</button>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+    </div>  
+
+    <div class="fixed-bottom">
+        Please note that app is programed to enable buttons on change in inputs. Although onchange event is used it behaves as if onblur is used.
+        So, after you enter all the values either press tab or click with mouse out of the last input field
+    </div>
+ 
+</template>

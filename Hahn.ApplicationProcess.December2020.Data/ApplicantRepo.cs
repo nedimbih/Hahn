@@ -64,8 +64,8 @@ namespace Hahn.ApplicationProcess.December2020.Data {
 				entryInDb.Address = incomingValues.Address;
 			if (incomingValues.CountryOfOrigin is not null)
 				entryInDb.CountryOfOrigin = incomingValues.CountryOfOrigin;
-			if (incomingValues.EMailAdress is not null)
-				entryInDb.EMailAdress = incomingValues.EMailAdress;
+			if (incomingValues.EmailAddress is not null)
+				entryInDb.EmailAddress = incomingValues.EmailAddress;
 			if (incomingValues.Age != 0)
 				entryInDb.Age = incomingValues.Age;
 			if (incomingValues.Hired)

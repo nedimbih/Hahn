@@ -62,9 +62,9 @@ namespace Hahn.ApplicationProcess.December2020.Web.Controllers {
 				var createdApplicantId = _applicantManager.AddApplicant(applicant); // createdApplicant can not be null, so no null-checking 
 				_logger.LogInformation($"An applicant with ID: {createdApplicantId} has been created in the database!");
 
-				var request = HttpContext.Request;
-				var uri = $"{request.Host.Value}{request.Path.Value}/{createdApplicantId}";
-				return uri;
+				//var request = HttpContext.Request;
+				//var uri = $"{request.Host.Value}{request.Path.Value}/{createdApplicantId}";
+				return ( createdApplicantId.ToString());
 			} catch (Exception) {
 				_logger.LogError("An error occurred while trying to create a new entry. New applicant is not saved to the database.");
 			}
