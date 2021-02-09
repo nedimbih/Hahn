@@ -12,7 +12,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicationProcess.Dec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicationProcess.December2020.Data", "Hahn.ApplicationProcess.December2020.Data\Hahn.ApplicationProcess.December2020.Data.csproj", "{B6157041-6168-461A-BD95-37707AB3B12D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.ApplicationProcess.December2020.Models", "Hahn.ApplicationProcess.December2020.Models\Hahn.ApplicationProcess.December2020.Models.csproj", "{29C7FE45-5F09-4D40-90EF-023E2C611866}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hahn.ApplicationProcess.December2020.Models", "Hahn.ApplicationProcess.December2020.Models\Hahn.ApplicationProcess.December2020.Models.csproj", "{29C7FE45-5F09-4D40-90EF-023E2C611866}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8ABBED2D-E621-4068-959E-A3D18AE42215}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
