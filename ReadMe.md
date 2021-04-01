@@ -1,7 +1,7 @@
 ### About the task
 #### Task requirements are listed below!!
 
-Before I say anything else, I have to say that I have really enjoyed working on this task, because it had a lots of technologies that I have not used before.
+Technologies used in this task that I have not used before.
 
 
 * Aurelia is something that I have never heard of before. Also I haven't heard of FluentValidation
